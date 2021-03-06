@@ -97,15 +97,37 @@ if __name__ == "__main__":
 
    import wiegand
 
+   from api_rest import *
+   from board import * 
+
+   api = API_REST()
+   board = BOARD()
+
+   print("Inicio")
+
    def callback(bits, value):
+      print("callback")
       print("bits={} value={:026b}".format(bits, value))
       card_id = int("{:026b}".format(value)[1:25],2)
       print("Card ID: {:010d}".format(card_id))
+      card_id2 = "{:010d}".format(card_id)
+      print(f'card_id {card_id2}')
+      response = api.inputGate(card_id2,"1")
+     
+      print(f'RESPONSE {response}')
+
+
+      if (response["status"]) == True:
+          board.activateRelay(7,4)
+          print("ARRANCA RELE")
+      
 
    pi = pigpio.pi()
 
+   print("pi",pi)
    w = wiegand.decoder(pi, 14, 15, callback)
 
+   print("w",w)
    time.sleep(1000)
 
    w.cancel()
