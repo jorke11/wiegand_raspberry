@@ -123,13 +123,13 @@ if __name__ == "__main__":
             board.activateRelay(5,0.5)
             print("ARRANCA RELE")
       
-   #while True:
-   pi = pigpio.pi()
+   while True:
+      pi = pigpio.pi()
 
-   print("pi",pi)
-   w = wiegand.decoder(pi, 14, 15, callback)
-   print("w",w)
-   time.sleep(1000)
-   w.cancel()
-   pi.stop()
+      print("pi",pi)
+      w = wiegand.decoder(pi, 14, 15, callback)
+      print("w",w)
+      time.sleep(1000)
+      w.cancel()
+      pi.stop()
 
