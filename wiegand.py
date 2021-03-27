@@ -102,9 +102,14 @@ if __name__ == "__main__":
 
    api = API_REST()
    board = BOARD()
+<<<<<<< HEAD
    board.shutdown(5)
    print("Inicio")
 
+=======
+
+   print("Inicio")
+>>>>>>> 9a2b325974ad9898b48e49174c0c788cfb31d455
 
    def callback(bits, value):
       print("callback")
@@ -119,6 +124,7 @@ if __name__ == "__main__":
 
 
       if (response["status"]) == True:
+<<<<<<< HEAD
           board.activateRelay(5,0.5)
           print("ARRANCA RELE")
       
@@ -131,6 +137,20 @@ if __name__ == "__main__":
       time.sleep(1000)
 
   
+=======
+          board.activateRelay(7,4)
+          print("ARRANCA RELE")
+      
+
+   pi = pigpio.pi()
+
+   print("pi",pi)
+   w = wiegand.decoder(pi, 14, 15, callback)
+
+   print("w",w)
+   time.sleep(1000)
+
+>>>>>>> 9a2b325974ad9898b48e49174c0c788cfb31d455
    w.cancel()
    pi.stop()
 

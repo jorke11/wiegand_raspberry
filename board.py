@@ -1,6 +1,7 @@
 import RPi.GPIO as IO
 import time
 
+<<<<<<< HEAD
 class BOARD:
     
     def shutdown(self,pin):
@@ -10,6 +11,11 @@ class BOARD:
         IO.output(pin, IO.LOW)
 
 
+=======
+
+
+class BOARD:
+>>>>>>> 9a2b325974ad9898b48e49174c0c788cfb31d455
     def activateRelay(self,pin,delay):
         IO.setwarnings(False)
         IO.setmode(IO.BOARD)
